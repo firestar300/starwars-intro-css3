@@ -1,0 +1,25 @@
+.top-bar,
+.top-bar ul {
+  background-color: transparent;
+}
+
+.top-bar {
+  top: auto;
+  bottom: 0;
+  
+  li {
+    &.menu-text {
+      color: $nav-text-color;
+
+      > a {
+        display: inline;
+        padding: 0;
+      }
+    }
+
+    a.active {
+      color: $white;
+      font-weight: bold;
+    }
+  }
+}

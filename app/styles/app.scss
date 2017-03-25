@@ -1,4 +1,4 @@
-@import 'base/variables';
+@import "base/variables";
 
 // Foundation
 @import "base/foundation-settings";
@@ -6,3 +6,5 @@
 @include foundation-everything;
 
 // Components
+@import "components/common";
+@import "components/nav";

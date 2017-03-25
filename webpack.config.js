@@ -23,6 +23,9 @@ module.exports = {
   resolve: {
     root: __dirname,
     alias: {
+      Index: 'app/components/Index.jsx',
+      Main: 'app/components/Main.jsx',
+      Nav: 'app/components/Nav.jsx',
       applicationStyle: 'app/styles/app.scss'
     },
     extensions: ['', '.js', '.jsx']
@@ -35,6 +38,11 @@ module.exports = {
           presets: ['react', 'es2015', 'stage-0']
         },
         test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|woff)$/,
+        loader: 'url-loader',
         exclude: /(node_modules|bower_components)/
       }
     ]
