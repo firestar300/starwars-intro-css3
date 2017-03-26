@@ -4,6 +4,7 @@ var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 
 var Main = require('Main');
 var Index = require('Index');
+var Crawl = require('Crawl');
 
 // Load foundation
 $(document).foundation();
@@ -15,13 +16,13 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
       <IndexRoute component={Index} />
-      <Route path="the-phantom-menace" />
-      <Route path="attack-of-the-clones" />
-      <Route path="revenge-of-the-sith" />
-      <Route path="a-new-hope" />
-      <Route path="empire-strikes-back" />
-      <Route path="return-of-the-jedi" />
-      <Route path="the-force-awakens" />
+      <Route path="the-phantom-menace" component={Crawl} movie="tpm" />
+      <Route path="attack-of-the-clones" component={Crawl} movie="aotc" />
+      <Route path="revenge-of-the-sith" component={Crawl} movie="rots" />
+      <Route path="a-new-hope" component={Crawl} movie="anh" />
+      <Route path="empire-strikes-back" component={Crawl} movie="esb" />
+      <Route path="return-of-the-jedi" component={Crawl} movie="rotj" />
+      <Route path="the-force-awakens" component={Crawl} movie="tfa" />
     </Route>
   </Router>,
   document.getElementById('app')
