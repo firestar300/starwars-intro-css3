@@ -4,14 +4,11 @@ var path = require('path');
 
 var Crawl = React.createClass({
   componentWillMount() {
-    console.log('componentWillMount');
     this.timer = setTimeout(() => {
-      console.log('redirection');
       window.location.hash = '/';
-    }, 5000);
+    }, 95000);
   },
   componentWillUnmount() {
-    console.log('componentWillUnmount');
     clearInterval(this.timer);
     this.timer = undefined;
   },
