@@ -23,6 +23,7 @@ module.exports = {
   resolve: {
     root: __dirname,
     alias: {
+      Crawl: 'app/components/Crawl.jsx',
       Index: 'app/components/Index.jsx',
       Main: 'app/components/Main.jsx',
       Nav: 'app/components/Nav.jsx',
