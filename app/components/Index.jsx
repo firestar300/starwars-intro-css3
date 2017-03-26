@@ -1,6 +1,8 @@
 var React = require('react');
 var {Link} = require('react-router');
 
+var Nav = require('Nav');
+
 var images = [
   {to: '/the-phantom-menace', src: require('./../img/phantom-menace.jpg')},
   {to: '/attack-of-the-clones', src: require('./../img/attack-of-the-clones.jpg')},
@@ -24,8 +26,11 @@ var Index = React.createClass({
     });
 
     return (
-      <div className="movies-list">
-        {movies}
+      <div>
+        <Nav />
+        <div className="movies-list">
+          {movies}
+        </div>
       </div>
     );
   }
