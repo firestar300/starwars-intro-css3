@@ -6,7 +6,7 @@ var Nav = () => {
     <div className="top-bar">
       <div className="top-bar-left">
         <ul className="dropdown menu" data-dropdown-menu>
-          <li><IndexLink to="/" activeClassName="active">Index</IndexLink></li>
+          <li><IndexLink to="/" activeClassName="active">Star Wars Crawl Text in CSS3</IndexLink></li>
           <li><Link to="/the-phantom-menace" activeClassName="active">I</Link></li>
           <li><Link to="/attack-of-the-clones" activeClassName="active">II</Link></li>
           <li><Link to="/revenge-of-the-sith" activeClassName="active">III</Link></li>
@@ -14,6 +14,8 @@ var Nav = () => {
           <li><Link to="/empire-strikes-back" activeClassName="active">V</Link></li>
           <li><Link to="/return-of-the-jedi" activeClassName="active">VI</Link></li>
           <li><Link to="/the-force-awakens" activeClassName="active">VII</Link></li>
+          <li className="menu-text">VIII</li>
+          <li className="menu-text">IX</li>
         </ul>
       </div>
       <div className="top-bar-right">
