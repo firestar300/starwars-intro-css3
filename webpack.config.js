@@ -45,6 +45,10 @@ module.exports = {
         test: /\.(png|jpg|jpeg|gif|woff)$/,
         loader: 'url-loader',
         exclude: /(node_modules|bower_components)/
+      },
+      {
+        test: /\.(aac|mp3|ogg)$/,
+        loader: 'file?name=public/sounds/[name].[ext]?[hash]'
       }
     ]
   },
