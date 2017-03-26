@@ -1,33 +1,31 @@
 var React = require('react');
 var {Link} = require('react-router');
 
+var images = [
+  {to: '/the-phantom-menace', src: require('./../img/phantom-menace.jpg')},
+  {to: '/attack-of-the-clones', src: require('./../img/attack-of-the-clones.jpg')},
+  {to: '/revenge-of-the-sith', src: require('./../img/revenge-of-the-sith.jpg')},
+  {to: '/a-new-hope', src: require('./../img/a-new-hope.jpg')},
+  {to: '/empire-strikes-back', src: require('./../img/empire-strikes-back.jpg')},
+  {to: '/return-of-the-jedi', src: require('./../img/return-of-the-jedi.jpg')},
+  {to: '/the-force-awakens', src: require('./../img/the-force-awakens.jpg')}
+];
+
 var Index = React.createClass({
   render: function(props) {
-    return (
-      <div className="movies-list">
+    var movies = images.map(image => {
+      return (
         <div className="movie">
-          <Link to="/the-phantom-menace" activeClassName="active">
-            <img src="img/the-phantom-menace.jpg" />
+          <Link to={image.to} activeClassName="active">
+            <img src={image.src} />
           </Link>
         </div>
-        <div className="movie">
-          <Link to="/attack-of-the-clones" activeClassName="active">II</Link>
-        </div>
-        <div className="movie">
-          <Link to="/revenge-of-the-sith" activeClassName="active">III</Link>
-        </div>
-        <div className="movie">
-          <Link to="/a-new-hope" activeClassName="active">IV</Link>
-        </div>
-        <div className="movie">
-          <Link to="/empire-strikes-back" activeClassName="active">V</Link>
-        </div>
-        <div className="movie">
-          <Link to="/return-of-the-jedi" activeClassName="active">VI</Link>
-        </div>
-        <div className="movie">
-          <Link to="/the-force-awakens" activeClassName="active">VII</Link>
-        </div>
+      );
+    });
+
+    return (
+      <div className="movies-list">
+        {movies}
       </div>
     );
   }
