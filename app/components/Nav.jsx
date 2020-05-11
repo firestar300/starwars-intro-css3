@@ -14,8 +14,8 @@ var Nav = () => {
           <li><Link to="/empire-strikes-back" activeClassName="active">V</Link></li>
           <li><Link to="/return-of-the-jedi" activeClassName="active">VI</Link></li>
           <li><Link to="/the-force-awakens" activeClassName="active">VII</Link></li>
-          <li className="menu-text">VIII</li>
-          <li className="menu-text">IX</li>
+          <li><Link to="/the-last-jedi" activeClassName="active">VIII</Link></li>
+          <li><Link to="/rise-of-skywalker" activeClassName="active">IX</Link></li>
         </ul>
       </div>
       <div className="top-bar-right">

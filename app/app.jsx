@@ -23,6 +23,8 @@ ReactDOM.render(
       <Route path="empire-strikes-back" component={Crawl} movie="esb" />
       <Route path="return-of-the-jedi" component={Crawl} movie="rotj" />
       <Route path="the-force-awakens" component={Crawl} movie="tfa" />
+      <Route path="the-last-jedi" component={Crawl} movie="tlj" />
+      <Route path="rise-of-skywalker" component={Crawl} movie="ros" />
     </Route>
   </Router>,
   document.getElementById('app')

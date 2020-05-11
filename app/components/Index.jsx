@@ -10,7 +10,9 @@ var images = [
   {id: 3, to: '/a-new-hope', src: require('./../img/a-new-hope.jpg')},
   {id: 4, to: '/empire-strikes-back', src: require('./../img/empire-strikes-back.jpg')},
   {id: 5, to: '/return-of-the-jedi', src: require('./../img/return-of-the-jedi.jpg')},
-  {id: 6, to: '/the-force-awakens', src: require('./../img/the-force-awakens.jpg')}
+  {id: 6, to: '/the-force-awakens', src: require('./../img/the-force-awakens.jpg')},
+  {id: 7, to: '/the-last-jedi', src: require('./../img/the-last-jedi.jpg')},
+  {id: 8, to: '/rise-of-skywalker', src: require('./../img/rise-of-skywalker.jpg')}
 ];
 
 var Index = React.createClass({
