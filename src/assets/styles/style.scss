@@ -1,8 +1,8 @@
 @import "base/variables";
 
 // Foundation
-@import "base/foundation-settings";
-@import "foundation";
+// @import "base/foundation-settings";
+@import "~foundation-sites/scss/foundation";
 @include foundation-everything;
 
 // Components

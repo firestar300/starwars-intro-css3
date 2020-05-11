@@ -1,50 +1,64 @@
 {
-  "name": "boilerplate",
+  "name": "webpack-4-react-boilerplate",
   "version": "1.0.0",
-  "description": "Simple React app",
+  "description": "A simple and complete Webpack 4 React Boilerplate",
   "main": "index.js",
+  "repository": "https://github.com/user/repository.git",
+  "author": "Your Name <your@email.com>",
+  "license": "MIT",
   "scripts": {
-    "start": "node server.js",
-    "dev": "webpack-dev-server --hot --content-base public/",
-    "test": "karma start"
-  },
-  "author": "Milan",
-  "license": "ISC",
-  "engines": {
-    "node": "6.9.1"
+    "start": "webpack-dev-server --config=config/webpack.dev.js --hot",
+    "start:reload": "webpack-dev-server --config=config/webpack.dev.js",
+    "start:style": "cross-env MAP_STYLE=true webpack-dev-server --config=config/webpack.dev.js --hot",
+    "build": "webpack --config=config/webpack.prod.js",
+    "analyze": "cross-env ENABLE_ANALYZER=true yarn build",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
-    "axios": "^0.15.3",
-    "express": "^4.15.2",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "react-router": "^2.0.0"
+    "foundation-sites": "^6.6.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   },
   "devDependencies": {
-    "babel-core": "^6.5.1",
-    "babel-loader": "^6.2.2",
-    "babel-preset-es2015": "^6.5.0",
-    "babel-preset-react": "^6.5.0",
-    "babel-preset-stage-0": "^6.22.0",
-    "css-loader": "^0.23.1",
-    "expect": "^1.14.0",
-    "file-loader": "^0.8.5",
-    "foundation-sites": "6.2.0",
-    "jquery": "^2.2.1",
-    "karma": "^0.13.22",
-    "karma-chrome-launcher": "^0.2.2",
-    "karma-mocha": "^0.2.2",
-    "karma-mocha-reporter": "^2.0.0",
-    "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^1.7.0",
-    "mocha": "^2.4.5",
-    "node-sass": "^3.4.2",
-    "react-addons-test-utils": "^0.14.6",
-    "sass-loader": "^3.1.2",
-    "script-loader": "^0.6.1",
-    "style-loader": "^0.13.0",
-    "url-loader": "^0.5.7",
-    "webpack": "^1.12.13",
-    "webpack-dev-server": "^1.16.2"
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.4.1",
+    "mini-css-extract-plugin": "^0.4.5",
+    "node-sass": "^4.9.2",
+    "optimize-css-assets-webpack-plugin": "^5.0.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-test-renderer": "^16.4.1",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.16.0",
+    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-manifest-plugin": "^2.0.3",
+    "webpack-merge": "^4.1.3"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/config/setupTests.js",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|css)$": "<rootDir>/src/utils/empty-module.js"
+    }
   }
 }
