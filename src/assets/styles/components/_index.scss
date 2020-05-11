@@ -4,7 +4,7 @@
   justify-content: space-around;
 
   .movie {
-    width: 300px;
+    width: 100%;
     margin: 1.5rem 0;
     border: 2px solid $white;
 
@@ -14,6 +14,12 @@
       &:hover {
         opacity: 1;
       }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .movie {
+      width: 30%;
     }
   }
 }
