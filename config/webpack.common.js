@@ -8,7 +8,7 @@ module.exports = {
     output: {
         filename: '[name].[hash].js',
         path: path.resolve(__dirname, '../dist'),
-        publicPath: "/"
+        publicPath: '/',
     },
     devServer: {
         port: 3042,
@@ -31,6 +31,18 @@ module.exports = {
                         options: {
                             limit: 21000,
                             name: "images/[name]_[hash:7].[ext]"
+                        }
+                    }
+                ]
+            },
+            {
+                test: /.*\.(woff|woff2)$/i,
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 21000,
+                            name: "fonts/[name]_[hash:7].[ext]"
                         }
                     }
                 ]

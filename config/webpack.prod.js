@@ -12,6 +12,9 @@ const enableBundleAnalyzer = process.env.ENABLE_ANALYZER === 'true';
 module.exports = merge(common, {
     mode: 'production',
     devtool: 'source-map',
+    output: {
+        publicPath: './',
+    },
     module: {
         rules: [
             {
