@@ -6,7 +6,7 @@ import Index from './Index'
 import Crawl from './Crawl'
 
 const App = () => (
-  <Router>
+  <Router basename={`starwars`}>
     <Switch>
       <Route exact path="/">
         <Index />
