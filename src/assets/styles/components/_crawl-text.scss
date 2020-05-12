@@ -132,11 +132,10 @@ p#start
 #titles
 {
 	position: absolute;
-	width: 18em;
+	width: 21em;
 	height: 50em;
 	bottom: 0;
 	left: 50%;
-	margin-left: -9em;
 	font-size: 350%;
 	text-align: justify;
 	overflow: hidden;
@@ -145,11 +144,11 @@ p#start
 	-ms-transform-origin: 50% 100%;
 	-o-transform-origin: 50% 100%;
 	transform-origin: 50% 100%;
-	-webkit-transform: perspective(300px) rotateX(25deg);
-	-moz-transform: perspective(300px) rotateX(25deg);
-	-ms-transform: perspective(300px) rotateX(25deg);
-	-o-transform: perspective(300px) rotateX(25deg);
-	transform: perspective(300px) rotateX(25deg);
+	-webkit-transform: perspective(300px) rotateX(25deg) translateX(-50%);
+	-moz-transform: perspective(300px) rotateX(25deg) translateX(-50%);
+	-ms-transform: perspective(300px) rotateX(25deg) translateX(-50%);
+	-o-transform: perspective(300px) rotateX(25deg) translateX(-50%);
+	transform: perspective(300px) rotateX(25deg) translateX(-50%);
 }
 
 #titles:after
