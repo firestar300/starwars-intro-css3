@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STAR WARS EPISODE IV : UN NOUVEL ESPOIR (CSS3 Version)</title>
+  <link rel="stylesheet" href="/src/styles/episode-animation.css">
+</head>
+<body>
+  <!-- Start Screen -->
+  <div id="start-screen">
+    <div class="start-content">
+      <h1 class="episode-title">Episode <span class="roman">IV</span></h1>
+      <h2 class="episode-subtitle uppercase">Un nouvel espoir</h2>
+      <button id="start-button" class="start-btn">
+        <span class="btn-text">Commencer</span>
+        <span class="btn-icon">▶</span>
+      </button>
+      <p class="start-hint">Cliquez pour lancer l'intro avec le son</p>
+    </div>
+  </div>
+
+  <!-- Animation Content (hidden initially) -->
+  <div id="animation-content" style="display: none;">
+    <p id="start">Il y a bien longtemps dans une galaxie lointaine très lointaine....</p>
+
+    <img src="/assets/img/starwars-logo.png" alt="Star Wars" class="logo">
+
+    <div id="titles">
+      <div id="titlecontent">
+        <p class="title center">Episode <span class="roman">IV</span></p>
+        <p class="sub center uppercase">Un nouvel espoir</p>
+        <br>
+        <p>C'est une époque de guerre civile. À bord de vaisseaux spatiaux opérant à partir d'une base cachée, les Rebelles ont remporté leur première victoire sur le maléfique Empire galactique.</p>
+        <br>
+        <p>Au cours de la bataille, des espions rebelles ont réussi à dérober les plans secrets de l'arme absolue de l'Empire : l'Étoile de la mort, une station spatiale blindée dotée d'un armement assez puissant pour annihiler une planète tout entière.</p>
+        <br>
+        <p>Poursuivie par les sbires sinistres de l'Empire, la princesse Leia file vers sa base dans son vaisseau cosmique, porteuse des plans volés à l'ennemi qui pourront sauver son peuple et restaurer la liberté dans la galaxie....</p>
+      </div>
+    </div>
+
+    <audio id="intro-audio">
+      <source src="/assets/sounds/intro.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    document.getElementById('start-button').addEventListener('click', function() {
+      document.getElementById('start-screen').style.display = 'none';
+      document.getElementById('animation-content').style.display = 'block';
+      const audio = document.getElementById('intro-audio');
+      audio.play().catch(e => console.log('Audio play failed:', e));
+    });
+  </script>
+</body>
+</html>
