@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
+  base: '/starwars-intro-css3/',
   server: {
     port: 3000,
     open: true
