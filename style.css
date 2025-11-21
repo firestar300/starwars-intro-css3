@@ -6,7 +6,6 @@
 
 body {
   background: url(/img/background.jpg) center center fixed;
-  background-size: cover;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
