@@ -13,16 +13,18 @@ import 'swiper/css/effect-fade';
 // Initialiser Swiper après le chargement du DOM
 document.addEventListener('DOMContentLoaded', function() {
   // Créer les éléments audio pour chaque épisode
+  // Utiliser import.meta.env.BASE_URL pour gérer le base path en production
+  const basePath = import.meta.env.BASE_URL;
   const audioFiles = {
-    0: '/assets/sounds/episode1.mp3',
-    1: '/assets/sounds/episode2.mp3',
-    2: '/assets/sounds/episode3.mp3',
-    3: '/assets/sounds/episode4.mp3',
-    4: '/assets/sounds/episode5.mp3',
-    5: '/assets/sounds/episode6.mp3',
-    6: '/assets/sounds/episode7.mp3',
-    7: '/assets/sounds/episode8.mp3',
-    8: '/assets/sounds/episode9.mp3'
+    0: `${basePath}assets/sounds/episode1.mp3`,
+    1: `${basePath}assets/sounds/episode2.mp3`,
+    2: `${basePath}assets/sounds/episode3.mp3`,
+    3: `${basePath}assets/sounds/episode4.mp3`,
+    4: `${basePath}assets/sounds/episode5.mp3`,
+    5: `${basePath}assets/sounds/episode6.mp3`,
+    6: `${basePath}assets/sounds/episode7.mp3`,
+    7: `${basePath}assets/sounds/episode8.mp3`,
+    8: `${basePath}assets/sounds/episode9.mp3`
   };
 
   let currentAudio = null;
