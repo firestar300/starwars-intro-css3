@@ -12,16 +12,6 @@ import 'swiper/css/effect-fade';
 
 // Initialiser Swiper après le chargement du DOM
 document.addEventListener('DOMContentLoaded', function() {
-  // Appliquer les backgrounds blur depuis data-bg
-  const slides = document.querySelectorAll('.swiper-slide[data-bg]');
-  slides.forEach(slide => {
-    const bgImage = slide.getAttribute('data-bg');
-    const bgElement = slide.querySelector('.slide-bg');
-    if (bgElement && bgImage) {
-      bgElement.style.backgroundImage = `url(${bgImage})`;
-    }
-  });
-
   // Initialiser Swiper
   const swiper = new Swiper('.swiper', {
     modules: [Navigation, Pagination, Autoplay, EffectFade],

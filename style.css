@@ -58,9 +58,8 @@ body {
   overflow: hidden;
 }
 
-/* Background blur effect using pseudo-element */
-.swiper-slide::before {
-  content: '';
+/* Background blur effect using slide-bg elements */
+.slide-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -73,34 +72,28 @@ body {
   z-index: 1;
 }
 
-/* Background images for each episode */
-.swiper-slide:nth-child(1)::before {
+.slide-bg-ep1 {
   background-image: url('/img/phantom-menace-artwork.png');
 }
 
-.swiper-slide:nth-child(2)::before {
+.slide-bg-ep2 {
   background-image: url('/img/attack-of-the-clones-artwork.png');
 }
 
-.swiper-slide:nth-child(3)::before {
+.slide-bg-ep3 {
   background-image: url('/img/revenge-of-the-sith-artwork.png');
 }
 
-.swiper-slide:nth-child(4)::before {
+.slide-bg-ep4 {
   background-image: url('/img/new-hope-artwork.png');
 }
 
-.swiper-slide:nth-child(5)::before {
+.slide-bg-ep5 {
   background-image: url('/img/empire-strikes-back-artwork.png');
 }
 
-.swiper-slide:nth-child(6)::before {
+.slide-bg-ep6 {
   background-image: url('/img/return-of-the-jedi-artwork.png');
-}
-
-/* Old slide-bg kept for compatibility but can be removed */
-.slide-bg {
-  display: none;
 }
 
 /* Slide Content */
