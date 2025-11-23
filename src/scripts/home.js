@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let currentAudio = null;
   let audioEnabled = false;
+  const soundToggle = document.getElementById('sound-toggle');
+  const soundOnIcon = document.querySelector('.sound-on');
+  const soundOffIcon = document.querySelector('.sound-off');
 
   // Fonction pour jouer l'audio d'un épisode
   function playEpisodeAudio(index) {
@@ -45,6 +48,29 @@ document.addEventListener('DOMContentLoaded', function() {
       currentAudio.play().catch(e => console.log('Audio play failed:', e));
     }
   }
+
+  // Fonction pour basculer le son
+  function toggleSound() {
+    audioEnabled = !audioEnabled;
+
+    if (audioEnabled) {
+      soundToggle.classList.add('active');
+      soundOffIcon.style.display = 'none';
+      soundOnIcon.style.display = 'block';
+      playEpisodeAudio(swiper.realIndex);
+    } else {
+      soundToggle.classList.remove('active');
+      soundOffIcon.style.display = 'block';
+      soundOnIcon.style.display = 'none';
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+    }
+  }
+
+  // Écouter le clic sur le bouton de son
+  soundToggle.addEventListener('click', toggleSound);
 
   // Initialiser Swiper
   const swiper = new Swiper('.swiper', {
@@ -76,17 +102,4 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   });
-
-  // Activer l'audio après la première interaction utilisateur
-  function enableAudio() {
-    if (!audioEnabled) {
-      audioEnabled = true;
-      playEpisodeAudio(swiper.realIndex);
-    }
-  }
-
-  // Écouter les clics pour activer l'audio
-  document.querySelector('.swiper').addEventListener('click', enableAudio, { once: true });
-  document.querySelector('.swiper-button-prev').addEventListener('click', enableAudio, { once: true });
-  document.querySelector('.swiper-button-next').addEventListener('click', enableAudio, { once: true });
 });
