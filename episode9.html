@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Star Wars Episode IX : L'Ascension de Skywalker - Intro CSS3</title>
+  <meta name="description" content="Revivez l'introduction épique de Star Wars Episode IX : L'Ascension de Skywalker avec cette animation CSS3 fidèle à l'original.">
+  <meta name="keywords" content="Star Wars, Episode 9, L'Ascension de Skywalker, CSS3, animation intro">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Star Wars Episode IX : L'Ascension de Skywalker - Intro CSS3">
+  <meta property="og:description" content="Revivez l'introduction épique de Star Wars Episode IX avec cette animation CSS3.">
+  <meta property="og:image" content="https://firestar300.github.io/starwars-intro-css3/img/the-rise-of-skywalker-artwork.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+
+  <link rel="stylesheet" href="/src/styles/episode-animation.css">
+</head>
+<body>
+  <!-- Start Screen -->
+  <div id="start-screen">
+    <div class="start-content">
+      <h1 class="episode-title">Episode <span class="roman">IX</span></h1>
+      <h2 class="episode-subtitle uppercase">L'Ascension de Skywalker</h2>
+      <button id="start-button" class="start-btn">
+        <span class="btn-text">Commencer</span>
+        <span class="btn-icon">▶</span>
+      </button>
+      <p class="start-hint">Cliquez pour lancer l'intro avec le son</p>
+    </div>
+  </div>
+
+  <!-- Animation Content (hidden initially) -->
+  <div id="animation-content" style="display: none;">
+    <p id="start">Il y a bien longtemps, dans une galaxie lointaine, très lointaine....</p>
+
+    <img src="/assets/img/starwars-logo.svg" alt="Star Wars" class="logo">
+
+    <div id="titles">
+      <div id="titlecontent">
+        <p class="title center">Episode <span class="roman">IX</span></p>
+        <p class="sub center uppercase">L'Ascension de Skywalker</p>
+        <br>
+        <p>L'Empereur est de retour ! Son terrifiant message a résonné dans toute la galaxie. Le PREMIER ORDRE, sous les ordres de Kylo Ren, cherche à retrouver l'Empereur pour rejoindre ses forces.</p>
+        <br>
+        <p>La RÉSISTANCE, menée par la Générale Leia Organa, se lance dans une course contre la montre pour localiser l'Empereur avant qu'il ne soit trop tard.</p>
+        <br>
+        <p>Rey s'entraîne sous la tutelle de Leia pour devenir un Jedi. Elle doit affronter son destin et faire face à la vérité sur ses origines pour sauver la galaxie d'une destruction certaine…</p>
+      </div>
+    </div>
+
+    <audio id="intro-audio">
+      <source src="/assets/sounds/intro.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- End screen buttons -->
+    <div id="end-buttons" class="end-buttons">
+      <button id="home-button" class="end-btn">
+        <span class="btn-text">Accueil</span>
+      </button>
+      <button id="replay-button" class="end-btn">
+        <span class="btn-text">Rejouer</span>
+      </button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/scripts/episode.js"></script>
+</body>
+</html>

@@ -96,6 +96,18 @@ body {
   background-image: url('/img/return-of-the-jedi-artwork.png');
 }
 
+.slide-bg-ep7 {
+  background-image: url('/img/the-force-awakens-artowork.png');
+}
+
+.slide-bg-ep8 {
+  background-image: url('/img/the-last-jedi-artwork.png');
+}
+
+.slide-bg-ep9 {
+  background-image: url('/img/the-rise-of-skywalker-artwork.png');
+}
+
 /* Slide Content */
 .slide-content {
   position: relative;

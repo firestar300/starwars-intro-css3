@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Star Wars Episode VII : Le Réveil de la Force - Intro CSS3</title>
+  <meta name="description" content="Revivez l'introduction épique de Star Wars Episode VII : Le Réveil de la Force avec cette animation CSS3 fidèle à l'original.">
+  <meta name="keywords" content="Star Wars, Episode 7, Le Réveil de la Force, CSS3, animation intro">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Star Wars Episode VII : Le Réveil de la Force - Intro CSS3">
+  <meta property="og:description" content="Revivez l'introduction épique de Star Wars Episode VII avec cette animation CSS3.">
+  <meta property="og:image" content="https://firestar300.github.io/starwars-intro-css3/img/the-force-awakens-artowork.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+
+  <link rel="stylesheet" href="/src/styles/episode-animation.css">
+</head>
+<body>
+  <!-- Start Screen -->
+  <div id="start-screen">
+    <div class="start-content">
+      <h1 class="episode-title">Episode <span class="roman">VII</span></h1>
+      <h2 class="episode-subtitle uppercase">Le Réveil de la Force</h2>
+      <button id="start-button" class="start-btn">
+        <span class="btn-text">Commencer</span>
+        <span class="btn-icon">▶</span>
+      </button>
+      <p class="start-hint">Cliquez pour lancer l'intro avec le son</p>
+    </div>
+  </div>
+
+  <!-- Animation Content (hidden initially) -->
+  <div id="animation-content" style="display: none;">
+    <p id="start">Il y a bien longtemps, dans une galaxie lointaine, très lointaine....</p>
+
+    <img src="/assets/img/starwars-logo.svg" alt="Star Wars" class="logo">
+
+    <div id="titles">
+      <div id="titlecontent">
+        <p class="title center">Episode <span class="roman">VII</span></p>
+        <p class="sub center uppercase">Le Réveil de la Force</p>
+        <br>
+        <p>Luke Skywalker a disparu. En son absence, le sinistre PREMIER ORDRE a surgi des cendres de l'Empire et cherche à détruire Luke, le dernier des Jedi.</p>
+        <br>
+        <p>Avec le soutien de la RÉPUBLIQUE, la générale Leia Organa dirige une brave RÉSISTANCE. Elle est désespérée de retrouver son frère Luke et de bénéficier de son aide pour restaurer la paix et la justice dans la galaxie.</p>
+        <br>
+        <p>Leia a envoyé son pilote le plus audacieux en mission secrète sur Jakku, où un vieil allié a découvert une piste menant à l'endroit où se trouve Luke…</p>
+      </div>
+    </div>
+
+    <audio id="intro-audio">
+      <source src="/assets/sounds/intro.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- End screen buttons -->
+    <div id="end-buttons" class="end-buttons">
+      <button id="home-button" class="end-btn">
+        <span class="btn-text">Accueil</span>
+      </button>
+      <button id="replay-button" class="end-btn">
+        <span class="btn-text">Rejouer</span>
+      </button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/scripts/episode.js"></script>
+</body>
+</html>
