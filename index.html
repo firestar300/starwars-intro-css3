@@ -7,33 +7,102 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="logo-container">
-      <img src="/img/starwars-logo.png" alt="Star Wars logo" class="logo">
-    </div>
-
-    <div class="episodes-grid">
-      <div class="episode episode-1">
-        <a href="./episode1.html" title="Star Wars Episode I"></a>
-      </div>
-      <div class="episode episode-2">
-        <a href="./episode2.html" title="Star Wars Episode II"></a>
-      </div>
-      <div class="episode episode-3">
-        <a href="./episode3.html" title="Star Wars Episode III"></a>
-      </div>
-      <div class="episode episode-4">
-        <a href="./episode4.html" title="Star Wars Episode IV"></a>
-      </div>
-      <div class="episode episode-5">
-        <a href="./episode5.html" title="Star Wars Episode V"></a>
-      </div>
-      <div class="episode episode-6">
-        <a href="./episode6.html" title="Star Wars Episode VI"></a>
-      </div>
-    </div>
+  <div class="logo-container">
+    <img src="/img/starwars-logo.png" alt="Star Wars logo" class="logo">
   </div>
 
-  <script type="module" src="/main.js"></script>
+  <!-- Swiper -->
+  <div class="swiper">
+    <div class="swiper-wrapper">
+
+      <!-- Episode I -->
+      <div class="swiper-slide" data-bg="/img/phantom-menace-artwork.png">
+        <div class="slide-bg slide-bg-ep1"></div>
+        <div class="slide-content">
+          <img src="/img/phantom-menace-artwork.png" alt="Episode I" class="slide-image">
+          <div class="slide-caption">
+            <h2 class="episode-number">Episode I</h2>
+            <h3 class="episode-title">La Menace Fantôme</h3>
+            <a href="./episode1.html" class="cta-button">Voir l'intro</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Episode II -->
+      <div class="swiper-slide" data-bg="/img/attack-of-the-clones-artwork.png">
+        <div class="slide-bg slide-bg-ep2"></div>
+        <div class="slide-content">
+          <img src="/img/attack-of-the-clones-artwork.png" alt="Episode II" class="slide-image">
+          <div class="slide-caption">
+            <h2 class="episode-number">Episode II</h2>
+            <h3 class="episode-title">L'Attaque des Clones</h3>
+            <a href="./episode2.html" class="cta-button">Voir l'intro</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Episode III -->
+      <div class="swiper-slide" data-bg="/img/revenge-of-the-sith-artwork.png">
+        <div class="slide-bg slide-bg-ep3"></div>
+        <div class="slide-content">
+          <img src="/img/revenge-of-the-sith-artwork.png" alt="Episode III" class="slide-image">
+          <div class="slide-caption">
+            <h2 class="episode-number">Episode III</h2>
+            <h3 class="episode-title">La Revanche des Sith</h3>
+            <a href="./episode3.html" class="cta-button">Voir l'intro</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Episode IV -->
+      <div class="swiper-slide" data-bg="/img/new-hope-artwork.png">
+        <div class="slide-bg slide-bg-ep4"></div>
+        <div class="slide-content">
+          <img src="/img/new-hope-artwork.png" alt="Episode IV" class="slide-image">
+          <div class="slide-caption">
+            <h2 class="episode-number">Episode IV</h2>
+            <h3 class="episode-title">Un Nouvel Espoir</h3>
+            <a href="./episode4.html" class="cta-button">Voir l'intro</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Episode V -->
+      <div class="swiper-slide" data-bg="/img/empire-strikes-back-artwork.png">
+        <div class="slide-bg slide-bg-ep5"></div>
+        <div class="slide-content">
+          <img src="/img/empire-strikes-back-artwork.png" alt="Episode V" class="slide-image">
+          <div class="slide-caption">
+            <h2 class="episode-number">Episode V</h2>
+            <h3 class="episode-title">L'Empire Contre-Attaque</h3>
+            <a href="./episode5.html" class="cta-button">Voir l'intro</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Episode VI -->
+      <div class="swiper-slide" data-bg="/img/return-of-the-jedi-artwork.png">
+        <div class="slide-bg slide-bg-ep6"></div>
+        <div class="slide-content">
+          <img src="/img/return-of-the-jedi-artwork.png" alt="Episode VI" class="slide-image">
+          <div class="slide-caption">
+            <h2 class="episode-number">Episode VI</h2>
+            <h3 class="episode-title">Le Retour du Jedi</h3>
+            <a href="./episode6.html" class="cta-button">Voir l'intro</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <button class="swiper-button-prev" aria-label="Épisode précédent"></button>
+    <button class="swiper-button-next" aria-label="Épisode suivant"></button>
+
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <script type="module" src="/src/scripts/home.js"></script>
 </body>
 </html>
