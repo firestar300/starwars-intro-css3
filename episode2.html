@@ -42,15 +42,18 @@
     <audio id="intro-audio">
       <source src="/assets/sounds/intro.mp3" type="audio/mpeg">
     </audio>
+
+    <!-- End screen buttons -->
+    <div id="end-buttons" class="end-buttons">
+      <button id="home-button" class="end-btn">
+        <span class="btn-text">Accueil</span>
+      </button>
+      <button id="replay-button" class="end-btn">
+        <span class="btn-text">Rejouer</span>
+      </button>
+    </div>
   </div>
 
-  <script>
-    document.getElementById('start-button').addEventListener('click', function() {
-      document.getElementById('start-screen').style.display = 'none';
-      document.getElementById('animation-content').style.display = 'block';
-      const audio = document.getElementById('intro-audio');
-      audio.play().catch(e => console.log('Audio play failed:', e));
-    });
-  </script>
+  <script type="module" src="/src/scripts/episode.js"></script>
 </body>
 </html>
