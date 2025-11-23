@@ -148,7 +148,7 @@ body {
 
 .episode-number {
   font-size: 1.5rem;
-  color: #ffe81f;
+  color: #FFC507;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 0.5rem;
@@ -196,7 +196,7 @@ body {
 }
 
 .cta-button:hover {
-  background: #ffe81f;
+  background: #FFC507;
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(255, 232, 31, 0.6);
 }
