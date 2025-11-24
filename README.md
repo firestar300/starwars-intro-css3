@@ -4,6 +4,8 @@
 
 Intros animées des 6 épisodes de Star Wars en CSS3 avec l'effet de défilement 3D iconique.
 
+## [See introductions here](https://firestar300.github.io/starwars-intro-css3/)
+
 ## 🚀 Démarrage rapide
 
 ```bash
