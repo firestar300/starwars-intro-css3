@@ -151,6 +151,8 @@ document.addEventListener('DOMContentLoaded', function() {
     soundOffIcon.style.display = 'none';
     soundOnIcon.style.display = 'block';
     closeModal();
+    // Sauvegarder le choix dans sessionStorage
+    sessionStorage.setItem('soundPreference', 'enabled');
     // Démarrer la musique de la première slide
     playEpisodeAudio(swiper.realIndex);
     // Démarrer l'autoplay du slider
@@ -164,6 +166,8 @@ document.addEventListener('DOMContentLoaded', function() {
     soundOffIcon.style.display = 'block';
     soundOnIcon.style.display = 'none';
     closeModal();
+    // Sauvegarder le choix dans sessionStorage
+    sessionStorage.setItem('soundPreference', 'disabled');
     // Démarrer l'autoplay du slider (même sans son)
     startSliderAutoplay();
   }
@@ -220,4 +224,30 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   });
+
+  // Vérifier si l'utilisateur a déjà fait son choix dans cette session
+  const soundPreference = sessionStorage.getItem('soundPreference');
+
+  if (soundPreference) {
+    // L'utilisateur a déjà visité la page, ne pas afficher la modale
+    welcomeModal.style.display = 'none';
+
+    // Appliquer la préférence sauvegardée
+    if (soundPreference === 'enabled') {
+      audioEnabled = true;
+      soundToggle.classList.add('active');
+      soundOffIcon.style.display = 'none';
+      soundOnIcon.style.display = 'block';
+      playEpisodeAudio(swiper.realIndex);
+    } else {
+      audioEnabled = false;
+      soundToggle.classList.remove('active');
+      soundOffIcon.style.display = 'block';
+      soundOnIcon.style.display = 'none';
+    }
+
+    // Démarrer le slider automatiquement
+    startSliderAutoplay();
+  }
+  // Sinon, la modale sera affichée par défaut via le CSS
 });
