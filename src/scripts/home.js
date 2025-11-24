@@ -27,32 +27,97 @@ document.addEventListener('DOMContentLoaded', function() {
     8: `${basePath}assets/sounds/episode9.mp3`
   };
 
+  // Précharger tous les fichiers audio
+  const preloadedAudios = {};
+  Object.entries(audioFiles).forEach(([index, url]) => {
+    const audio = new Audio();
+    audio.preload = 'auto';
+    audio.src = url;
+    audio.volume = 0.5;
+    preloadedAudios[index] = audio;
+  });
+
   let currentAudio = null;
   let audioEnabled = false;
   const soundToggle = document.getElementById('sound-toggle');
   const soundOnIcon = document.querySelector('.sound-on');
   const soundOffIcon = document.querySelector('.sound-off');
+  let fadeInterval = null;
 
-  // Fonction pour jouer l'audio d'un épisode
-  function playEpisodeAudio(index) {
+  // Éléments de la modale
+  const welcomeModal = document.getElementById('welcome-modal');
+  const modalSoundOn = document.getElementById('modal-sound-on');
+  const modalSoundOff = document.getElementById('modal-sound-off');
+
+  // Élément de la barre de progression
+  const progressFill = document.querySelector('.progress-fill');
+
+  // Fonction pour faire un fade out
+  function fadeOut(audio, duration = 500) {
+    return new Promise((resolve) => {
+      if (!audio) {
+        resolve();
+        return;
+      }
+
+      const startVolume = audio.volume;
+      const step = startVolume / (duration / 10);
+
+      const fade = setInterval(() => {
+        if (audio.volume > step) {
+          audio.volume = Math.max(0, audio.volume - step);
+        } else {
+          audio.volume = 0;
+          audio.pause();
+          clearInterval(fade);
+          resolve();
+        }
+      }, 10);
+    });
+  }
+
+  // Fonction pour faire un fade in
+  function fadeIn(audio, targetVolume = 0.5, duration = 500) {
+    if (!audio) return;
+
+    audio.volume = 0;
+    audio.currentTime = 0;
+    audio.play().catch(e => console.log('Audio play failed:', e));
+
+    const step = targetVolume / (duration / 10);
+
+    const fade = setInterval(() => {
+      if (audio.volume < targetVolume - step) {
+        audio.volume = Math.min(targetVolume, audio.volume + step);
+      } else {
+        audio.volume = targetVolume;
+        clearInterval(fade);
+      }
+    }, 10);
+  }
+
+  // Fonction pour jouer l'audio d'un épisode avec crossfade
+  async function playEpisodeAudio(index) {
     if (!audioEnabled) return;
 
-    // Arrêter l'audio en cours
-    if (currentAudio) {
-      currentAudio.pause();
-      currentAudio.currentTime = 0;
+    const newAudio = preloadedAudios[index];
+    if (!newAudio) return;
+
+    // Si un audio est en cours, faire un crossfade
+    if (currentAudio && currentAudio !== newAudio) {
+      // Lancer le fade out de l'ancien audio et le fade in du nouveau en parallèle
+      fadeOut(currentAudio, 800);
+      fadeIn(newAudio, 0.5, 800);
+    } else {
+      // Première lecture, juste un fade in
+      fadeIn(newAudio, 0.5, 800);
     }
 
-    // Créer et jouer le nouvel audio
-    if (audioFiles[index]) {
-      currentAudio = new Audio(audioFiles[index]);
-      currentAudio.volume = 0.5; // Volume à 50%
-      currentAudio.play().catch(e => console.log('Audio play failed:', e));
-    }
+    currentAudio = newAudio;
   }
 
   // Fonction pour basculer le son
-  function toggleSound() {
+  async function toggleSound() {
     audioEnabled = !audioEnabled;
 
     if (audioEnabled) {
@@ -65,16 +130,63 @@ document.addEventListener('DOMContentLoaded', function() {
       soundOffIcon.style.display = 'block';
       soundOnIcon.style.display = 'none';
       if (currentAudio) {
-        currentAudio.pause();
+        await fadeOut(currentAudio, 500);
         currentAudio.currentTime = 0;
       }
     }
   }
 
+  // Fonction pour fermer la modale
+  function closeModal() {
+    welcomeModal.classList.add('hidden');
+    setTimeout(() => {
+      welcomeModal.style.display = 'none';
+    }, 500);
+  }
+
+  // Fonction pour activer le son depuis la modale
+  function enableSoundFromModal() {
+    audioEnabled = true;
+    soundToggle.classList.add('active');
+    soundOffIcon.style.display = 'none';
+    soundOnIcon.style.display = 'block';
+    closeModal();
+    // Démarrer la musique de la première slide
+    playEpisodeAudio(swiper.realIndex);
+    // Démarrer l'autoplay du slider
+    startSliderAutoplay();
+  }
+
+  // Fonction pour désactiver le son depuis la modale
+  function disableSoundFromModal() {
+    audioEnabled = false;
+    soundToggle.classList.remove('active');
+    soundOffIcon.style.display = 'block';
+    soundOnIcon.style.display = 'none';
+    closeModal();
+    // Démarrer l'autoplay du slider (même sans son)
+    startSliderAutoplay();
+  }
+
+  // Fonction pour démarrer l'autoplay du slider
+  function startSliderAutoplay() {
+    // Configurer l'autoplay avec les bons paramètres
+    swiper.params.autoplay = {
+      delay: 15000,
+      disableOnInteraction: false,
+    };
+    // Démarrer l'autoplay
+    swiper.autoplay.start();
+  }
+
+  // Écouter les clics sur les boutons de la modale
+  modalSoundOn.addEventListener('click', enableSoundFromModal);
+  modalSoundOff.addEventListener('click', disableSoundFromModal);
+
   // Écouter le clic sur le bouton de son
   soundToggle.addEventListener('click', toggleSound);
 
-  // Initialiser Swiper
+  // Initialiser Swiper (sans autoplay au départ)
   const swiper = new Swiper('.swiper', {
     modules: [Navigation, Pagination, Autoplay, EffectFade],
     effect: 'fade',
@@ -84,10 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
     slidesPerView: 1,
     spaceBetween: 0,
     loop: true,
-    autoplay: {
-      delay: 10000,
-      disableOnInteraction: false,
-    },
+    autoplay: false, // Désactivé au départ, sera démarré après choix de l'utilisateur
     speed: 1000,
     pagination: {
       el: '.swiper-pagination',
@@ -101,6 +210,13 @@ document.addEventListener('DOMContentLoaded', function() {
       // Jouer l'audio à chaque changement de slide
       slideChange: function() {
         playEpisodeAudio(this.realIndex);
+      },
+      // Mettre à jour la barre de progression
+      autoplayTimeLeft(swiper, time, progress) {
+        // progress va de 1 (début) à 0 (fin)
+        // On veut que la barre se remplisse de 0% à 100%
+        const fillProgress = (1 - progress) * 100;
+        progressFill.style.width = `${fillProgress}%`;
       }
     }
   });

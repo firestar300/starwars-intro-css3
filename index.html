@@ -33,6 +33,33 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+  <!-- Welcome Modal -->
+  <div id="welcome-modal" class="welcome-modal">
+    <div class="modal-content">
+      <img src="/img/starwars-logo.svg" alt="Star Wars" class="modal-logo">
+      <h1 class="modal-title">Bienvenue dans la galaxie Star Wars</h1>
+      <p class="modal-subtitle">Souhaitez-vous activer le son pour une expérience immersive ?</p>
+      <div class="modal-buttons">
+        <button id="modal-sound-on" class="modal-btn modal-btn-primary">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Avec le son</span>
+        </button>
+        <button id="modal-sound-off" class="modal-btn modal-btn-secondary">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Sans le son</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <div class="logo-container">
     <img src="/img/starwars-logo.svg" alt="Star Wars logo" class="logo">
   </div>
@@ -177,9 +204,11 @@
     <!-- Navigation -->
     <button class="swiper-button-prev" aria-label="Épisode précédent"></button>
     <button class="swiper-button-next" aria-label="Épisode suivant"></button>
+  </div>
 
-    <!-- Pagination -->
-    <div class="swiper-pagination"></div>
+  <!-- Barre de progression -->
+  <div class="progress-bar">
+    <div class="progress-fill"></div>
   </div>
 
   <script type="module" src="/src/scripts/home.js"></script>
