@@ -207,8 +207,8 @@ document.addEventListener('DOMContentLoaded', function() {
       prevEl: '.swiper-button-prev',
     },
     on: {
-      // Jouer l'audio à chaque changement de slide
-      slideChange: function() {
+      // Jouer l'audio à chaque changement de slide (y compris lors du loop)
+      slideChangeTransitionStart: function() {
         playEpisodeAudio(this.realIndex);
       },
       // Mettre à jour la barre de progression
